@@ -63,8 +63,12 @@ body {
   font-size: 20px;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background-image: linear-gradient(to right, #aa076b, #61045f);
+}
+
+label {
+  color: #2f4f4f;
 }
 
 .buttons-container button:hover {

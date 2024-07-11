@@ -1,14 +1,14 @@
 import { SelectContainer } from './components/SelectContainer';
 import { ButtonsContainer } from './components/ButtonsContainer';
+import { NumberOfQuestionsContainer } from './components/NumberInputContainer';
 import './App.css';
-import { NumberInput } from './components/NumberInput';
 
 function App() {
 
   return (
     <>
       <div className='start-container'>
-        <NumberInput />
+        <NumberOfQuestionsContainer />
         <SelectContainer />
         <ButtonsContainer />
       </div>

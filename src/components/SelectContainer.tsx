@@ -1,15 +1,16 @@
 import { SelectInput } from "./SelectInput";
+import { Option } from "./SelectInput";
 
-const categories = [
+const categories: Option[] = [
     { value: 'example', label: 'Example' },
 ];
-const difficulties = [
+const difficulties: Option[] = [
     { value: 'example', label: 'Example' },
 ];
-const types = [
+const types: Option[] = [
     { value: 'example', label: 'Example' },
 ];
-const times = [
+const times: Option[] = [
     { value: '1m', label: '1m' },
     { value: '2m', label: '2m' },
     { value: '5m', label: '5m' },

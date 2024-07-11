@@ -1,12 +1,17 @@
 import { useId } from 'react';
 import Select from 'react-select';
 
-type Option = {
+export interface Option {
     value: string,
     label: string
-};
+}
 
-const SelectInput = ({ label, options }: { label: string, options: Option[] }) => {
+interface selectInputProps {
+    label: string,
+    options: Option[]
+}
+
+const SelectInput = ({ label, options }: selectInputProps): JSX.Element => {
 
     const selectInputId = useId();
 

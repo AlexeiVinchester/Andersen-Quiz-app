@@ -1,6 +1,6 @@
-import { SelectContainer } from './components/SelectContainer';
-import { ButtonsContainer } from './components/ButtonsContainer';
-import { NumberOfQuestionsContainer } from './components/NumberInputContainer';
+import { SelectContainer } from './components/StartPage/SelectsContainer/SelectsContainer';
+import { ButtonsContainer } from './components/StartPage/ButtonsContainer/ButtonsContainer';
+import { NumberOfQuestionsContainer } from './components/StartPage/NumberInputContainer/NumberInputContainer';
 import './App.css';
 
 function App() {

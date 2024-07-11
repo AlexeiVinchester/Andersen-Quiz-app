@@ -1,11 +1,5 @@
 import { useId } from "react";
-
-export interface numberInputProps {
-    placeholder: string,
-    label: string,
-    min: number,
-    max: number
-}
+import { numberInputProps } from "./interfaces/NumberInput.interface";
 
 const NumberInput = ({placeholder, label, min, max}: numberInputProps) => {
 

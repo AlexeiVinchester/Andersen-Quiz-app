@@ -1,4 +1,4 @@
-import { NumberInput } from "./NumberInput";
+import { NumberInput } from "./NumberInput/NumberInput";
 
 const NumberOfQuestionsContainer = () => {
     return (

@@ -1,6 +1,5 @@
 import { SelectInput } from "./SelectInput";
 
-
 const categories = [
     { value: 'example', label: 'Example' },
 ];

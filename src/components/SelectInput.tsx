@@ -6,8 +6,8 @@ type Option = {
     label: string
 };
 
-const SelectInput = ({label, options}: {label: string, options: Option[]}) => {
-    
+const SelectInput = ({ label, options }: { label: string, options: Option[] }) => {
+
     const selectInputId = useId();
 
     return (

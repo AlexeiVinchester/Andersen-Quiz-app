@@ -1,5 +1,3 @@
-
-
 const ButtonsContainer = () => {
     return (
         <div className="flex-row buttons-container">

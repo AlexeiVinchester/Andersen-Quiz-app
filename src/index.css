@@ -1,4 +1,3 @@
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -41,7 +40,7 @@ body {
   background-color: #eeebee;
   height: 200px;
   border-radius: .8rem;
-  
+
 
 }
 
@@ -59,16 +58,16 @@ body {
   color: #fff;
   border: none;
   border-radius: 5px;
-  background-image: linear-gradient(to right, #aa076b , #61045f);
+  background-image: linear-gradient(to right, #aa076b, #61045f);
 }
 
 .buttons-container button:hover {
   background-image: linear-gradient(to right, #61045f, #aa076b);
   font-size: 18px;
   cursor: pointer;
-} 
-.select-input {
- 
-  margin-bottom: 40px;
 }
 
+.select-input {
+
+  margin-bottom: 40px;
+}

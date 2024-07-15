@@ -1,20 +1,15 @@
-import { SelectContainer } from './components/StartPage/SelectsContainer/SelectsContainer';
-import { ButtonsContainer } from './components/StartPage/ButtonsContainer/ButtonsContainer';
-import { NumberOfQuestionsContainer } from './components/StartPage/NumberInputContainer/NumberInputContainer';
+// import { StartPage } from './components/StartPage/StartPage';
+import { MainQuizPage } from './components/MainQuizPage/MainQuizPage';
+
 import './App.css';
 
 function App() {
 
   return (
     <>
-      <div className='start-container'>
-        <NumberOfQuestionsContainer />
-        <SelectContainer />
-        <ButtonsContainer />
-      </div>
-
+      <MainQuizPage />
     </>
   )
 }
 
-export default App
+export { App };

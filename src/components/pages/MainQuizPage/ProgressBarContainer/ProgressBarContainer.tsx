@@ -1,6 +1,6 @@
-import { progressBarContainerProps } from "./interface/progressBarContainer.interface";
+import { ProgressBarContainerProps } from "./interface/progressBarContainer.interface";
 
-const ProgressBarContainer = ({ currentQuestion, numberOfQuestions }: progressBarContainerProps) => {
+const ProgressBarContainer = ({ currentQuestion, numberOfQuestions }: ProgressBarContainerProps) => {
     return (
         <div className="progress-bar-container">
             <label>Question {currentQuestion} of {numberOfQuestions}</label>

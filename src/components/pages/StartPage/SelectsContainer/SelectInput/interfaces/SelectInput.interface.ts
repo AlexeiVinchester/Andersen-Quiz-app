@@ -1,6 +1,6 @@
 import { Option } from "../../options/option.interface"
 
-export interface selectInputProps {
+export interface SelectInputProps {
     label: string,
     options: Option[]
 }

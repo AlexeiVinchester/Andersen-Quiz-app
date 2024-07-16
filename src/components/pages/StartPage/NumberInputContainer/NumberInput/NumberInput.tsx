@@ -1,7 +1,7 @@
 import { useId } from "react";
-import { numberInputProps } from "./interfaces/NumberInput.interface";
+import { NumberInputProps } from "./interfaces/NumberInput.interface";
 
-const NumberInput = ({placeholder, label, min, max}: numberInputProps) => {
+const NumberInput = ({placeholder, label, min, max}: NumberInputProps) => {
 
     const inputId = useId();
 

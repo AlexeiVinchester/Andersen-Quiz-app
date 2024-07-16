@@ -1,4 +1,4 @@
-export interface buttonsContainerProps {
+export interface ButtonsContainerProps {
     type: string,
     answers: string[]
 }

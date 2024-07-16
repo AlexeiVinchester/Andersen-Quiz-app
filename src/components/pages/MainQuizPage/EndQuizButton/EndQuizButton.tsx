@@ -2,7 +2,7 @@ import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledBut
 
 const EndQuizButton = () => {
     return (
-        <StyledButton text="Finish test" />
+        <StyledButton onClickHandler={() => { }} text="Finish test" />
     );
 };
 

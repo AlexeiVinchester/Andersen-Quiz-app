@@ -1,7 +1,7 @@
 import { AnswerButton } from "../AnswerButton/AnswerButton";
-import { groupButtonsContainerProps } from "./interface/groupButtonsContainer";
+import { GroupButtonsContainerProps } from "./interface/groupButtonsContainer";
 
-const GroupButtonsContainer = ({answers}: groupButtonsContainerProps) => {
+const GroupButtonsContainer = ({answers}: GroupButtonsContainerProps) => {
     return (
         <div className="qroup-question-buttons">
             {

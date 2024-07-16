@@ -1,3 +1,4 @@
-export interface styledButtonProps {
-    text: string
+export interface StyledButtonProps {
+    text: string,
+    onClickHandler: () => void
 }

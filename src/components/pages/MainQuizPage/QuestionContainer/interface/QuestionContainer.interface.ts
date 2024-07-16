@@ -1,6 +1,6 @@
-import { question } from "./question.interface";
+import { Question } from "./question.interface";
 
-export interface questionContainerProps {
-    question: question,
+export interface QuestionContainerProps {
+    question: Question,
 }
 

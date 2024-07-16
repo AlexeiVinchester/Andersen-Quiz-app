@@ -3,8 +3,8 @@ import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledBut
 const ButtonsContainer = () => {
     return (
         <div className="flex-row buttons-container">
-            <StyledButton text="Start quiz" />
-            <StyledButton text="See my stats" />
+            <StyledButton onClickHandler={() => {}} text="Start quiz" />
+            <StyledButton onClickHandler={() => {}} text="See my stats" />
         </div>
     );
 };

@@ -1,4 +1,4 @@
-export interface numberInputProps {
+export interface NumberInputProps {
     placeholder: string,
     label: string,
     min: number,

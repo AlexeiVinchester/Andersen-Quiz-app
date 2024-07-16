@@ -1,6 +1,6 @@
-import { styledButtonProps } from "./interface/styledButton.interface"
+import { StyledButtonProps } from "./interface/styledButton.interface"
 
-const StyledButton = ({ text }: styledButtonProps) => {
+const StyledButton = ({ text }: StyledButtonProps) => {
     return (
         <button className="styled-button" type="button">{text}</button>
     )

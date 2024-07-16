@@ -1,8 +1,8 @@
 import { useId } from 'react';
 import Select from 'react-select';
-import { selectInputProps } from './interfaces/SelectInput.interface';
+import { SelectInputProps } from './interfaces/SelectInput.interface';
 
-const SelectInput = ({ label, options }: selectInputProps): JSX.Element => {
+const SelectInput = ({ label, options }: SelectInputProps): JSX.Element => {
 
     const selectInputId = useId();
 

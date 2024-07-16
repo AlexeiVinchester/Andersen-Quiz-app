@@ -1,3 +1,3 @@
-export interface answerButtonProps {
+export interface AnswerButtonProps {
     answerText: string
 }

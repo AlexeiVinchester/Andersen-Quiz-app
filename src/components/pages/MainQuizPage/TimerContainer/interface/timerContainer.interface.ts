@@ -1,3 +1,3 @@
-export interface timerContainerProps {
+export interface TimerContainerProps {
     startTime: string
 }

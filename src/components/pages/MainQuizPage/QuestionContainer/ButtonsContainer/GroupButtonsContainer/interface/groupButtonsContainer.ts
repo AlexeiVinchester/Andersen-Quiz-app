@@ -1,3 +1,3 @@
-export interface groupButtonsContainerProps {
+export interface GroupButtonsContainerProps {
     answers: string[]
 }

@@ -1,6 +1,6 @@
-import { timerContainerProps } from "./interface/timerContainer.interface";
+import { TimerContainerProps } from "./interface/timerContainer.interface";
 
-const TimerContainer = ({ startTime }: timerContainerProps) => {
+const TimerContainer = ({ startTime }: TimerContainerProps) => {
     return (
         <div className="timer-container">Start time: {startTime} </div>
     )

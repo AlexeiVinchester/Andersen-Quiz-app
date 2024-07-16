@@ -1,8 +1,8 @@
-import { answerButtonProps } from "./interface/answerButton.interface"
+import { AnswerButtonProps } from "./interface/answerButton.interface"
 
-const AnswerButton = ({ answerText }: answerButtonProps) => {
+const AnswerButton = ({ answerText }: AnswerButtonProps) => {
     return (
-        <button key={answerText} type="button">{answerText}</button>
+        <button type="button">{answerText}</button>
     )
 }
 

@@ -1,4 +1,4 @@
-import { TimerContainerProps } from "./interface/timerContainer.interface";
+import { TimerContainerProps } from "../../../spreadedInterfaces/timerContainer.interface";
 
 const TimerContainer = ({ startTime }: TimerContainerProps) => {
     return (

@@ -3,7 +3,7 @@ import { FinishTime } from "./FinishTime/FinishTime";
 import { QuizConfigContainer } from "./QuizConfigContainer/QuizConfigContainer";
 import { ResultNumberField } from "./ResultNumberField/ResultNumberField";
 import { ResultQuizPageProps } from "./interface/resultQuizPage.interface";
-import { ResultContainer } from "./ResultContainer/ResultCOntainer";
+import { ResultContainer } from "./ResultContainer/ResultContainer";
 
 const ResultQuizPage = ({ quizConfig }: ResultQuizPageProps) => {
     return (

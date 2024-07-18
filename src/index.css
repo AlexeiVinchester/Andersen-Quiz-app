@@ -138,6 +138,7 @@ label {
 .result-quiz-page {
   height: 360px;
   text-align: left;
+  width: 800px;
 }
 
 .result-quiz-page span {

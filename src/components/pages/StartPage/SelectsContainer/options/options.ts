@@ -1,13 +1,18 @@
 import { Option } from "./option.interface";
 
 const categories: Option[] = [
-    { value: 'example', label: 'Example' },
+    { value: 'sport', label: 'Sport' },
+    { value: 'programming', label: 'Programming' },
+    { value: 'travelling', label: 'Travelling' },
 ];
 const difficulties: Option[] = [
-    { value: 'example', label: 'Example' },
+    { value: 'easy', label: 'Easy' },
+    { value: 'medium', label: 'Medium' },
+    { value: 'hard', label: 'Hard' },
 ];
 const types: Option[] = [
-    { value: 'example', label: 'Example' },
+    { value: 'boolean', label: 'boolean' },
+    { value: 'group', label: 'group' },
 ];
 const times: Option[] = [
     { value: '1m', label: '1m' },

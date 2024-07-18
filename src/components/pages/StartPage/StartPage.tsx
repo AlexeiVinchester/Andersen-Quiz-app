@@ -4,7 +4,7 @@ import { ButtonsContainer } from "./ButtonsContainer/ButtonsContainer";
 
 const StartPage = () => {
     return (
-        <div className='start-container'>
+        <div className='start-page page-container'>
             <NumberOfQuestionsContainer />
             <SelectContainer />
             <ButtonsContainer />

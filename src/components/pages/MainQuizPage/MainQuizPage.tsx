@@ -2,11 +2,11 @@ import { QuestionContainer } from "./QuestionContainer/QuestionContainer";
 import { EndQuizButton } from "./EndQuizButton/EndQuizButton";
 import { ProgressBarContainer } from "./ProgressBarContainer/ProgressBarContainer";
 import { TimerContainer } from "./TimerContainer/TimerContainer";
-import { initialQuestion } from "./QuestionContainer/initialQuestion";
+import { initialQuestion } from "../../initialValues/initialQuestion";
 
 const MainQuizPage = () => {
     return (
-        <div className="main-quiz-page-container">
+        <div className="main-quiz-page page-container">
             <QuestionContainer
                 question={initialQuestion}
             />

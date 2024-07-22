@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledButton";
 import { createPortal } from "react-dom";
 import { ModalPage } from "../../ModalPage/ModalPage";
-import { RESULT } from "../../../Router/routes";
+import { START } from "../../../Router/routes";
 import { useNavigate } from "react-router-dom";
 
 const EndQuizButton = () => {
@@ -17,7 +17,7 @@ const EndQuizButton = () => {
                 showModal && createPortal(
                     <ModalPage
                         setShowModal={() => setShowModal(false)}
-                        navigateToResult={() => navigate(RESULT)}
+                        navigateToResult={() => navigate(START)}
                     />,
                     document.body
                 )

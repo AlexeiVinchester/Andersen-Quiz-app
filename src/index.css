@@ -207,7 +207,7 @@ label {
 .titleCloseBtn button {
   background-color: transparent;
   border: none;
-  font-size: 25px;
+  font-size: 23px;
   cursor: pointer;
 }
 
@@ -216,7 +216,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.7rem;
+  font-size: 22px;
   text-align: center;
 }
 
@@ -232,15 +232,23 @@ label {
   height: 45px;
   margin: 10px;
   border: none;
-  background-color: cornflowerblue;
+  background-color: #aa076b;
   color: white;
   border-radius: 8px;
   font-size: 20px;
   cursor: pointer;
 }
 
+.modalContainer .footer button:hover {
+  background-color: #61045f;
+}
+
 #cancelBtn {
-  background-color: crimson;
+  background-color: #6c6a6c;
+}
+
+#cancelBtn:hover {
+  background-color: #2a292a;
 }
 
 .timer-container-danger {

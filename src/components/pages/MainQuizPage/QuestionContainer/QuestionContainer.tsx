@@ -10,7 +10,11 @@ const QuestionContainer = ({ question, changeQuestion }: QuestionContainerProps)
                         <button 
                             key={answerButtonText} 
                             type="button"
-                            onClick={changeQuestion}
+                            name={answerButtonText}
+                            onClick={() => {
+                                changeQuestion();
+                                console.log(answerButtonText)
+                            }}
                         >{answerButtonText} 
                         </button>
                     ))

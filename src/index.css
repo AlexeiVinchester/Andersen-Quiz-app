@@ -136,7 +136,7 @@ label {
 }
 
 .result-quiz-page {
-  height: 360px;
+  height: 380px;
   text-align: left;
   width: 800px;
 }
@@ -241,4 +241,8 @@ label {
 
 #cancelBtn {
   background-color: crimson;
+}
+
+.timer-container-danger {
+  color: #dc4c1d;
 }

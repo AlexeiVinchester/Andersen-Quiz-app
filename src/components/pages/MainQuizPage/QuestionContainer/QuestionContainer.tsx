@@ -1,6 +1,6 @@
 import { QuestionContainerProps } from "./interface/QuestionContainer.interface";
 
-const QuestionContainer = ({ question, changeQuestion }: QuestionContainerProps) => {
+const QuestionContainer = ({ question, onChangeQuestion}: QuestionContainerProps) => {
     return (
         <div className="question-container">
             <h4 className="question-text">{question.question}</h4>
@@ -12,8 +12,7 @@ const QuestionContainer = ({ question, changeQuestion }: QuestionContainerProps)
                             type="button"
                             name={answerButtonText}
                             onClick={() => {
-                                changeQuestion();
-                                console.log(answerButtonText)
+                                onChangeQuestion();
                             }}
                         >{answerButtonText} 
                         </button>

@@ -10,14 +10,17 @@ const EndQuizButton = () => {
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
 
+    const onShowModalHandler = () => setShowModal(!showModal);
+    const onNavigateToResultHandler = () => navigate(START);
+
     return (
         <>
-            <StyledButton onClickHandler={() => setShowModal(true)} text="Finish test" />
+            <StyledButton onClickHandler={onShowModalHandler} text="Finish test" />
             {
                 showModal && createPortal(
                     <ModalPage
-                        setShowModal={() => setShowModal(false)}
-                        navigateToResult={() => navigate(START)}
+                        setShowModal={onShowModalHandler}
+                        navigateToResult={onNavigateToResultHandler}
                     />,
                     document.body
                 )

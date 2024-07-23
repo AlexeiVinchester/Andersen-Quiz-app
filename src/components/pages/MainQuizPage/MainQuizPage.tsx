@@ -23,17 +23,19 @@ const MainQuizPage = () => {
         };
     }, []);
 
+    const onChangeQuestionHandler = () => {
+        return activeQuestionIndex === questions.length - 1 ?
+               navigate(RESULT) :
+               setActiveQuestionIndex((prev) => prev + 1);
+    };
+
     if (seconds <= 0) navigate(RESULT);
 
     return (
         <div className="main-quiz-page page-container">
             <QuestionContainer
                 question={questions[activeQuestionIndex]}
-                changeQuestion={() => {
-                    activeQuestionIndex === questions.length - 1 ?
-                        navigate(RESULT) :
-                        setActiveQuestionIndex((prev) => prev + 1)
-                }}
+                onChangeQuestion={onChangeQuestionHandler}
             />
             <ProgressBarContainer
                 currentQuestion={activeQuestionIndex + 1}

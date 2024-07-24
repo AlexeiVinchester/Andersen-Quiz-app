@@ -17,7 +17,7 @@ const useInitialiseTimer = () => {
         };
     }, []);
 
-    const exportData = {
+    return {
         seconds,
         activeQuestionIndex,
         setActiveQuestionIndex,
@@ -26,8 +26,6 @@ const useInitialiseTimer = () => {
         secondsString,
         isDanger
     };
-
-    return exportData;
 }
 
 export { useInitialiseTimer };

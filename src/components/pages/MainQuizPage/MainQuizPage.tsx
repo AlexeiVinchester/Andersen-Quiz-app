@@ -7,7 +7,6 @@ import { useInitialiseTimer } from "./hooks/useInitialiseTimer";
 
 const MainQuizPage = () => {
     const {
-        seconds,
         activeQuestionIndex,
         setActiveQuestionIndex,
         navigate,
@@ -21,8 +20,6 @@ const MainQuizPage = () => {
                navigate(RESULT) :
                setActiveQuestionIndex((prev) => prev + 1);
     };
-
-    if (seconds <= 0) navigate(RESULT);
 
     return (
         <div className="main-quiz-page page-container">

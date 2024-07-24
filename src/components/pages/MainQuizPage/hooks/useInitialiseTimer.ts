@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { RESULT } from "../../../Router/routes";
 
 const useInitialiseTimer = () => {
     const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
@@ -12,10 +13,11 @@ const useInitialiseTimer = () => {
 
     useEffect(() => {
         const timerId = setInterval(() => setSeconds((prev) => Math.max(prev - 1, 0)), 1000);
+        if (seconds <= 0) navigate(RESULT);
         return () => {
             clearInterval(timerId);
         };
-    }, []);
+    });
 
     return {
         seconds,

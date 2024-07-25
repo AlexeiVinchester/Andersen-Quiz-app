@@ -1,7 +1,7 @@
 import { ModalPageProps } from "./interface/modalPage.interface";
 import { createPortal } from "react-dom";
 
-const ModalPage = ({ isOpen, setShowModal, navigateToResult, children }: ModalPageProps) => {
+const ModalPage = ({ isOpen, setShowModal, onConfirm, children }: ModalPageProps) => {
 
     if (!isOpen) return null;
 
@@ -14,7 +14,7 @@ const ModalPage = ({ isOpen, setShowModal, navigateToResult, children }: ModalPa
                 {children}
                 <div className="footer">
                     <button id="cancelBtn" onClick={setShowModal}>Cancel</button>
-                    <button onClick={navigateToResult}>Confirm</button>
+                    <button onClick={onConfirm}>Confirm</button>
                 </div>
             </div>
         </div>,

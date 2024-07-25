@@ -17,7 +17,7 @@ const EndQuizButton = () => {
             <ModalPage
                 isOpen={showModal}
                 setShowModal={onCloseModalHandler}
-                navigateToResult={onNavigateToResultHandler}
+                onConfirm={onNavigateToResultHandler}
             >
                 <div className="title">
                     <h1>Are you sure you want to finish quiz?</h1>

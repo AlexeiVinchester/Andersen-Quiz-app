@@ -2,7 +2,7 @@ import React from "react";
 
 export interface ModalPageProps {
     setShowModal: () => void,
-    navigateToResult: () => void,
+    onConfirm: () => void,
     isOpen: boolean,
     children: React.ReactNode
 }

@@ -9,7 +9,11 @@ const SelectInput = ({ label, options }: SelectInputProps): JSX.Element => {
     return (
         <div className='flex-col select-input'>
             <label className='selected-label' htmlFor={selectInputId}>Choose {label}</label>
-            <Select id={selectInputId} options={options} />
+            <Select 
+                id={selectInputId} 
+                options={options} 
+                onChange={(e) => {console.log(`Field: ${label} --- ${e?.value}`)}}
+            />
         </div>
     );
 };

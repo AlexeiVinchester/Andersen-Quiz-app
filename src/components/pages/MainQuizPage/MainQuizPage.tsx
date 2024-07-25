@@ -1,23 +1,46 @@
 import { QuestionContainer } from "./QuestionContainer/QuestionContainer";
 import { EndQuizButton } from "./EndQuizButton/EndQuizButton";
 import { ProgressBarContainer } from "./ProgressBarContainer/ProgressBarContainer";
-import { TimerContainer } from "./TimerContainer/TimerContainer";
-import { initialQuestion } from "../../initialValues/initialQuestion";
+import { questions } from "../../initialValues/initialQuestion";
+import { RESULT } from "../../Router/routes";
+import { useInitialiseTimer } from "./hooks/useInitialiseTimer";
 
 const MainQuizPage = () => {
+    const {
+        activeQuestionIndex,
+        setActiveQuestionIndex,
+        navigate,
+        minutesString,
+        secondsString,
+        isDanger
+    } = useInitialiseTimer();
+    
+    const onChangeQuestionHandler = () => {
+        return activeQuestionIndex === questions.length - 1 ?
+               navigate(RESULT) :
+               setActiveQuestionIndex((prev) => prev + 1);
+    };
+
     return (
         <div className="main-quiz-page page-container">
             <QuestionContainer
-                question={initialQuestion}
+                question={questions[activeQuestionIndex]}
+                onChangeQuestion={onChangeQuestionHandler}
             />
-            <ProgressBarContainer currentQuestion={1} numberOfQuestions={2} />
+            <ProgressBarContainer
+                currentQuestion={activeQuestionIndex + 1}
+                numberOfQuestions={questions.length}
+            />
             <div className="main-quiz-page-footer">
-                <TimerContainer startTime={Date.now().toString()} />
+                <div className="timer-container">
+                    Timer: {" "}
+                    <span className={isDanger ? "timer-container-danger" : ""}>
+                        {minutesString} : {secondsString}
+                    </span>
+                </div>
                 <EndQuizButton />
             </div>
-
         </div>
-
     );
 };
 

@@ -2,9 +2,9 @@ import { NumberOfQuestionsContainer } from "./NumberInputContainer/NumberInputCo
 import { SelectContainer } from "./SelectsContainer/SelectsContainer";
 import { ButtonsContainer } from "./ButtonsContainer/ButtonsContainer";
 
-const StartPage = () => {
+const ConfigurationPage = () => {
     return (
-        <div className='start-page page-container'>
+        <div className='configuration-page page-container'>
             <NumberOfQuestionsContainer />
             <SelectContainer />
             <ButtonsContainer />
@@ -12,4 +12,4 @@ const StartPage = () => {
     );
 };
 
-export { StartPage };
+export { ConfigurationPage };

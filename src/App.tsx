@@ -1,17 +1,13 @@
-import { StartPage } from './components/pages/StartPage/StartPage';
-import { MainQuizPage } from './components/pages/MainQuizPage/MainQuizPage';
-import { ResultQuizPage } from './components/pages/ResultQuizPage/ResultQuizPage';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './components/Router/router';
 import './App.css';
-import { initialQuizConfig } from './components/initialValues/initialQuizConfig';
-function App() {
 
+function App() {
     return (
         <>
-            <StartPage />
-            <MainQuizPage />
-            <ResultQuizPage quizConfig={initialQuizConfig}/>
+            <RouterProvider router={router} />
         </>
-    )
+    );
 }
 
 export { App };

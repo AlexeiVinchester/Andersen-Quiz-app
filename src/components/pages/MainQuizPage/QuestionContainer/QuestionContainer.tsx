@@ -1,11 +1,24 @@
 import { QuestionContainerProps } from "./interface/QuestionContainer.interface";
-import { ButtonsContainer } from "./ButtonsContainer/ButtonsContainer";
 
-const QuestionContainer = ({ question }: QuestionContainerProps) => {
+const QuestionContainer = ({ question, onChangeQuestion}: QuestionContainerProps) => {
     return (
         <div className="question-container">
             <h4 className="question-text">{question.question}</h4>
-            <ButtonsContainer type={question.type} answers={question.choices} />
+            <div className="qroup-question-buttons">
+                {
+                    question.choices.map((answerButtonText: string) => (
+                        <button 
+                            key={answerButtonText} 
+                            type="button"
+                            name={answerButtonText}
+                            onClick={() => {
+                                onChangeQuestion();
+                            }}
+                        >{answerButtonText} 
+                        </button>
+                    ))
+                }
+            </div>
         </div>
     );
 };

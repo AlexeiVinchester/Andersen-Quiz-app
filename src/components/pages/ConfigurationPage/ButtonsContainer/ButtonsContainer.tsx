@@ -1,11 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledButton";
 import { MAIN, STATISTICS } from "../../../Router/routes";
+import { useDispatch } from "react-redux";
+import { saveConfiguration } from "../../../../redux/actions/saveConfiguration/saveConfiguration";
+import { ButtonsContainerProps } from "./interface/buttonsContainer.interface";
 
-const ButtonsContainer = () => {
+const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const onClickStartQuizHandler = () => {
+        dispatch(saveConfiguration(configuration));
         navigate(MAIN);
     };
 

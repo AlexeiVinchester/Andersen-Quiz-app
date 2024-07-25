@@ -3,6 +3,7 @@ import { SelectContainer } from "./SelectsContainer/SelectsContainer";
 import { ButtonsContainer } from "./ButtonsContainer/ButtonsContainer";
 
 const ConfigurationPage = () => {
+    
     return (
         <div className='configuration-page page-container'>
             <NumberOfQuestionsContainer />

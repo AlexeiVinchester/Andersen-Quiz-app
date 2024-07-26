@@ -1,6 +1,10 @@
-import { QuizConfigContainerProps } from "./interface/quizConfigContainer.interface"
+import { useSelector } from "react-redux";
 
-const QuizConfigContainer = ({ quizConfig }: QuizConfigContainerProps) => {
+const QuizConfigContainer = () => {
+
+    const quizConfig = useSelector((state) => state.configuration.configuration)
+    console.log(quizConfig)
+
     return (
         <div className="quiz-config-container">
             <p>Category: <span>{quizConfig.category}</span> {' '}</p>

@@ -8,9 +8,13 @@ const resultSlice = createSlice({
     reducers: {
         incrementCorrectAnswers(state) {
             state.correctAnswers++;
+        },
+        clearCorrectAnswers(state) {
+            state.correctAnswers = 0
         }
+
     }
 });
 
-export const { incrementCorrectAnswers } = resultSlice.actions;
+export const { incrementCorrectAnswers, clearCorrectAnswers } = resultSlice.actions;
 export default resultSlice.reducer;

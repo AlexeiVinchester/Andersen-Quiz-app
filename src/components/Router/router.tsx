@@ -5,14 +5,13 @@ import { MainQuizPage } from "../pages/MainQuizPage/MainQuizPage";
 import { ResultQuizPage } from "../pages/ResultQuizPage/ResultQuizPage";
 import { StatisticsPage } from "../pages/StatisticsPage/StatisticsPage";
 import { NotFoundPage } from "../pages/NotFoundPage/NotFoundPage";
-import { initialQuizConfig } from "../initialValues/initialQuizConfig";
 import { MAIN, RESULT, STATISTICS, NOTFOUND } from "./routes";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<BasicPage />}>
         <Route index element={<ConfigurationPage />} />
         <Route path={MAIN} element={<MainQuizPage />} />
-        <Route path={RESULT} element={<ResultQuizPage quizConfig={initialQuizConfig} />} />
+        <Route path={RESULT} element={<ResultQuizPage />} />
         <Route path={STATISTICS} element={<StatisticsPage />} />
         <Route path={NOTFOUND} element={<NotFoundPage />} />
     </Route>

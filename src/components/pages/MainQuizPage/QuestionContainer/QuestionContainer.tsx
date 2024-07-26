@@ -3,7 +3,6 @@ import { incrementCorrectAnswers } from "../../../../redux/slices/resultSlice";
 import { useDispatch } from "react-redux";
 
 const QuestionContainer = ({ question, onChangeQuestion}: QuestionContainerProps) => {
-    
     const dispatch = useDispatch();
 
     const onClickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

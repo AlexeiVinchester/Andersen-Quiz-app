@@ -7,7 +7,6 @@ import { QuizConfig } from "../../spreadedInterfaces/quizConfig.interface";
 
 
 const ConfigurationPage = () => {
-    
     const [configuration, setConfiguration] = useState<QuizConfig>(initialQuizConfig);
 
     return (

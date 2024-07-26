@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledButton";
 import { MAIN, STATISTICS } from "../../../Router/routes";
-import { useDispatch } from "react-redux";
 import { saveConfiguration } from "../../../../redux/slices/configurationSlice";
 import { ButtonsContainerProps } from "./interface/buttonsContainer.interface";
+import { getQuestions } from "../../../../redux/slices/questionsSlice";
 
 const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {
     const dispatch = useDispatch();
@@ -12,10 +13,11 @@ const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {
     const onClickStartQuizHandler = () => {
         dispatch(saveConfiguration(configuration));
         navigate(MAIN);
+        dispatch(getQuestions());
     };
 
     const onClickSeeMyStatsHandler = () => {
-        navigate(STATISTICS)
+        navigate(STATISTICS);
     };
 
     return (

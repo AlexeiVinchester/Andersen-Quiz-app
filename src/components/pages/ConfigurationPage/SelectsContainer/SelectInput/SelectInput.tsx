@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import Select from 'react-select';
-import { SelectInputProps } from './interfaces/SelectInput.interface';
 import { SingleValue } from 'react-select';
+import { SelectInputProps } from './interfaces/SelectInput.interface';
 import { Option } from '../options/option.interface';
 
 const SelectInput = ({ label, options, onChangeSelectField }: SelectInputProps): JSX.Element => {
@@ -13,7 +13,7 @@ const SelectInput = ({ label, options, onChangeSelectField }: SelectInputProps):
             return {
                 ...prev,
                 [label]: e?.value
-            }
+            };
         });
     };
 

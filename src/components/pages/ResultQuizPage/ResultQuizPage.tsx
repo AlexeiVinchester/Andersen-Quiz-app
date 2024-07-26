@@ -8,30 +8,28 @@ import { MAIN, START } from "../../Router/routes";
 import { useDispatch } from "react-redux";
 import { clearConfiguration } from "../../../redux/slices/configurationSlice";
 import { useSelector } from "react-redux";
-import { questions } from "../../initialValues/initialQuestion";
 import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
 import { Store } from "../../../redux/store/interface/store.interface";
+import { clearQuestions } from "../../../redux/slices/questionsSlice";
 
 
 const ResultQuizPage = () => {
-
     const dispatch = useDispatch();
-
-    const result = useSelector((state: Store) => state.result);
-    console.log(result);
-
     const navigate = useNavigate();
-    
+    const result = useSelector((state: Store) => state.result);
+    const questions = useSelector((state: Store) => state.questions);
+
     const onClickRestartQuizHandler = () => {
-        navigate(MAIN);
         dispatch(clearCorrectAnswers());
-    }
+        navigate(MAIN);
+    };
 
     const onClickAnotherQuizHandler = () => {
         dispatch(clearConfiguration());
         dispatch(clearCorrectAnswers());
+        dispatch(clearQuestions());
         navigate(START);
-    }
+    };
 
     return (
         <div className="result-quiz-page page-container">

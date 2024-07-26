@@ -5,7 +5,7 @@ const ResultNumberField = ({ value, text }: ResultNumberFieldProps) => {
         <p>
             {text}: <span>{value}</span>
         </p>
-    )
-}
+    );
+};
 
 export { ResultNumberField };

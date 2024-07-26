@@ -1,11 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledButton";
 import { ModalPage } from "../../ModalPage/ModalPage";
 import { START } from "../../../Router/routes";
-import { useNavigate } from "react-router-dom";
 
 const EndQuizButton = () => {
-
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
     const onCloseModalHandler = () => setShowModal(!showModal);

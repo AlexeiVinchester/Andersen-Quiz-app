@@ -2,9 +2,7 @@ import { useSelector } from "react-redux";
 import { Store } from "../../../../redux/store/interface/store.interface";
 
 const QuizConfigContainer = () => {
-
-    const quizConfig = useSelector((state: Store) => state.configuration)
-    console.log(quizConfig)
+    const quizConfig = useSelector((state: Store) => state.configuration);
 
     return (
         <div className="quiz-config-container">
@@ -13,7 +11,7 @@ const QuizConfigContainer = () => {
             <p>Type: <span>{quizConfig.type}</span> {' '}</p>
             <p>Time: <span>{quizConfig.time}</span></p>
         </div>
-    )
+    );
 }
 
 export { QuizConfigContainer };

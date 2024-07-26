@@ -1,9 +1,10 @@
 import { QuestionContainer } from "./QuestionContainer/QuestionContainer";
 import { EndQuizButton } from "./EndQuizButton/EndQuizButton";
 import { ProgressBarContainer } from "./ProgressBarContainer/ProgressBarContainer";
-import { questions } from "../../initialValues/initialQuestion";
 import { RESULT } from "../../Router/routes";
 import { useInitialiseTimer } from "./hooks/useInitialiseTimer";
+import { useSelector } from "react-redux";
+import { Store } from "../../../redux/store/interface/store.interface";
 
 const MainQuizPage = () => {
     const {
@@ -20,6 +21,8 @@ const MainQuizPage = () => {
                navigate(RESULT) :
                setActiveQuestionIndex((prev) => prev + 1);
     };
+
+    const questions = useSelector((state: Store) => state.questions)
 
     return (
         <div className="main-quiz-page page-container">

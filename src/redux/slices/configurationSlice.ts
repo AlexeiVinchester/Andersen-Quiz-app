@@ -8,7 +8,7 @@ const configurationSlice = createSlice({
     },
     reducers: {
         saveConfiguration(state, action) {
-            state.configuration= action.payload;
+            state.configuration = action.payload;
         },
         clearConfiguration(state) {
             state.configuration = initialQuizConfig

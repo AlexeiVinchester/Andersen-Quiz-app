@@ -14,7 +14,7 @@ const MainQuizPage = () => {
         secondsString,
         isDanger
     } = useInitialiseTimer();
-    
+
     const onChangeQuestionHandler = () => {
         return activeQuestionIndex === questions.length - 1 ?
                navigate(RESULT) :

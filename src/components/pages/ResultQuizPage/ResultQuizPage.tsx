@@ -10,13 +10,14 @@ import { clearConfiguration } from "../../../redux/slices/configurationSlice";
 import { useSelector } from "react-redux";
 import { questions } from "../../initialValues/initialQuestion";
 import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
+import { Store } from "../../../redux/store/interface/store.interface";
 
 
 const ResultQuizPage = () => {
 
     const dispatch = useDispatch();
 
-    const result = useSelector((state) => state.result);
+    const result = useSelector((state: Store) => state.result);
     console.log(result);
 
     const navigate = useNavigate();

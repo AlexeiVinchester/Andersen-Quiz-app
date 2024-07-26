@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
+import { Store } from "../../../../redux/store/interface/store.interface";
 
 const QuizConfigContainer = () => {
 
-    const quizConfig = useSelector((state) => state.configuration.configuration)
+    const quizConfig = useSelector((state: Store) => state.configuration)
     console.log(quizConfig)
 
     return (

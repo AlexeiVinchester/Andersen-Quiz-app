@@ -4,14 +4,22 @@ import { initialQuizConfig } from "../../components/initialValues/initialQuizCon
 const configurationSlice = createSlice({
     name: 'configuration',
     initialState: {
-        configuration: initialQuizConfig
+        ...initialQuizConfig
     },
     reducers: {
         saveConfiguration(state, action) {
-            state.configuration = action.payload;
+            const {category, difficulty, type, time} = action.payload;
+            state.category = category;
+            state.difficulty = difficulty;
+            state.time = time;
+            state.type = type;
+            
         },
         clearConfiguration(state) {
-            state.configuration = initialQuizConfig
+            state.category = '';
+            state.difficulty = '';
+            state.time = '';
+            state.type = '';
         }
     }
 });

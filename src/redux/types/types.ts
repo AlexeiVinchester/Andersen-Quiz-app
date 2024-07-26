@@ -1,1 +1,0 @@
-export const SAVE_CONFIGURATION: string = 'SAVE CONFIGURATION';

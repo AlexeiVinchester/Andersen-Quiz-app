@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledButton";
 import { MAIN, STATISTICS } from "../../../Router/routes";
 import { useDispatch } from "react-redux";
-import { saveConfiguration } from "../../../../redux/actions/saveConfiguration/saveConfiguration";
+import { saveConfiguration } from "../../../../redux/slices/configurationSlice";
 import { ButtonsContainerProps } from "./interface/buttonsContainer.interface";
 
 const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {

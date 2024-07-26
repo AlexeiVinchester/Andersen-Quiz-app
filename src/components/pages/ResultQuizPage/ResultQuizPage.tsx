@@ -6,9 +6,13 @@ import { ResultQuizPageProps } from "./interface/resultQuizPage.interface";
 import { ResultContainer } from "./ResultContainer/ResultContainer";
 import { useNavigate } from "react-router-dom";
 import { MAIN, START } from "../../Router/routes";
+import { useDispatch } from "react-redux";
+import { clearConfiguration } from "../../../redux/slices/configurationSlice";
 
 
 const ResultQuizPage = ({ quizConfig }: ResultQuizPageProps) => {
+
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
     
@@ -17,7 +21,8 @@ const ResultQuizPage = ({ quizConfig }: ResultQuizPageProps) => {
     }
 
     const onClickAnotherQuizHandler = () => {
-        navigate(START)
+        dispatch(clearConfiguration());
+        navigate(START);
     }
 
     return (

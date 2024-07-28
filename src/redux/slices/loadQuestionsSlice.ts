@@ -10,7 +10,7 @@ export const loadQuestions = createAsyncThunk(
     }
 );
 
-export const userSlice = createSlice({
+export const loadedQuestionsSlice = createSlice({
     name: 'loadedQuestions',
     initialState: { data: null, loading: false, error: null},
     reducers: {
@@ -36,5 +36,5 @@ export const userSlice = createSlice({
         });
     },
   });
-  export const { clearLoadedQuestions } = userSlice.actions;
-  export default userSlice.reducer;
+  export const { clearLoadedQuestions } = loadedQuestionsSlice.actions;
+  export default loadedQuestionsSlice.reducer;

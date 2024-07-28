@@ -5,6 +5,7 @@ import { MAIN, STATISTICS } from "../../../Router/routes";
 import { saveConfiguration } from "../../../../redux/slices/configurationSlice";
 import { ButtonsContainerProps } from "./interface/buttonsContainer.interface";
 import { getQuestions } from "../../../../redux/slices/questionsSlice";
+import { loadQuestions } from "../../../../redux/slices/loadQuestionsSlice";
 
 const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {
         dispatch(saveConfiguration(configuration));
         navigate(MAIN);
         dispatch(getQuestions());
+        dispatch(loadQuestions());
     };
 
     const onClickSeeMyStatsHandler = () => {

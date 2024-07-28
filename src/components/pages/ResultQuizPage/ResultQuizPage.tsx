@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
 import { Store } from "../../../redux/store/interface/store.interface";
 import { clearQuestions } from "../../../redux/slices/questionsSlice";
-
+import { clearLoadedQuestions } from "../../../redux/slices/loadQuestionsSlice";
 
 const ResultQuizPage = () => {
     const dispatch = useDispatch();
@@ -28,6 +28,7 @@ const ResultQuizPage = () => {
         dispatch(clearConfiguration());
         dispatch(clearCorrectAnswers());
         dispatch(clearQuestions());
+        dispatch(clearLoadedQuestions())
         navigate(START);
     };
 

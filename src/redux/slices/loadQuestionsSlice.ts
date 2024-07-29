@@ -1,7 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
+import { AsyncThunk } from "@reduxjs/toolkit";
+import { RootState } from "../store/store";
+import { AppDispatch } from "../store/store";
+import { Data, initialStateObj, InitialState } from "./interfaces/loadQuestionsSlice.interface";
 
-export const loadQuestions = createAsyncThunk(
+export const loadQuestions: AsyncThunk<Data, void, {dispatch: AppDispatch, state: RootState}> = createAsyncThunk(
     'fetchedQuestions/fetchQuestions',
     async () => {
         const response = await fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple');
@@ -9,27 +13,6 @@ export const loadQuestions = createAsyncThunk(
         return data.results;
     }
 );
-
-interface Data {
-    type: string,
-    difficulty: string,
-    category: string,
-    question: string,
-    correct_answer: string,
-    incorrect_answers: string[]
-}
-
-interface InitialState {
-    data: null | Data,
-    loading: boolean,
-    error: null | string | undefined
-}
-
-const initialStateObj: InitialState = {
-    data: null,
-    loading: false,
-    error: null
-};
 
 export const loadedQuestionsSlice = createSlice({
     name: 'loadedQuestions',

@@ -4,14 +4,12 @@ import { QuizConfigContainer } from "./QuizConfigContainer/QuizConfigContainer";
 import { ResultNumberField } from "./ResultNumberField/ResultNumberField";
 import { ResultContainer } from "./ResultContainer/ResultContainer";
 import { useNavigate } from "react-router-dom";
-import { MAIN, START } from "../../Router/routes";
+import { MAIN } from "../../Router/routes";
 import { useDispatch } from "react-redux";
-import { clearConfiguration } from "../../../redux/slices/configurationSlice";
 import { useSelector } from "react-redux";
-import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
 import { Store } from "../../../redux/store/interface/store.interface";
-import { clearQuestions } from "../../../redux/slices/questionsSlice";
-import { clearLoadedQuestions } from "../../../redux/slices/loadQuestionsSlice";
+import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
+import { useClearCurrentQuizData } from "../../../hooks/useClearCurrentQuizData";
 
 const ResultQuizPage = () => {
     const dispatch = useDispatch();
@@ -19,17 +17,15 @@ const ResultQuizPage = () => {
     const result = useSelector((state: Store) => state.result);
     const questions = useSelector((state: Store) => state.questions);
 
+    const clearCurrentQuizData = useClearCurrentQuizData(); 
+
     const onClickRestartQuizHandler = () => {
         dispatch(clearCorrectAnswers());
         navigate(MAIN);
     };
 
     const onClickAnotherQuizHandler = () => {
-        dispatch(clearConfiguration());
-        dispatch(clearCorrectAnswers());
-        dispatch(clearQuestions());
-        dispatch(clearLoadedQuestions())
-        navigate(START);
+        clearCurrentQuizData();
     };
 
     return (

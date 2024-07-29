@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { RESULT } from "../../../Router/routes";
+import { RESULT } from "../components/Router/routes";
 
 const useInitialiseTimer = () => {
     const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);

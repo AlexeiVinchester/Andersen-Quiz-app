@@ -19,15 +19,6 @@ export const initialStatistics = {
     }
 };
 
-
-const payload = {
-    questions: 0,
-    correctAnswers: 0,
-    category: '',
-    difficulty: '',
-    type: ''
-};
-
 const statisticsSlice = createSlice({
     name: 'statistics',
     initialState: {...initialStatistics},

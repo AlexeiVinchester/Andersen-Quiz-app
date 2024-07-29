@@ -2,7 +2,7 @@ import { QuestionContainer } from "./QuestionContainer/QuestionContainer";
 import { EndQuizButton } from "./EndQuizButton/EndQuizButton";
 import { ProgressBarContainer } from "./ProgressBarContainer/ProgressBarContainer";
 import { RESULT } from "../../Router/routes";
-import { useInitialiseTimer } from "./hooks/useInitialiseTimer";
+import { useInitialiseTimer } from "../../../hooks/useInitialiseTimer";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/store/interface/store.interface";
 import { useEffect } from "react";

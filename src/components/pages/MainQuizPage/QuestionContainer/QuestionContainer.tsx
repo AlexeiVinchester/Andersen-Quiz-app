@@ -7,7 +7,6 @@ const QuestionContainer = ({ question, onChangeQuestion}: QuestionContainerProps
 
     const onClickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         if(e.currentTarget.name === question.correctAnswer) {
-            console.log('Correct answer');
             dispatch(incrementCorrectAnswers());
         }
         onChangeQuestion();

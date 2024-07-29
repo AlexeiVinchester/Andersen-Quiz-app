@@ -1,16 +1,25 @@
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledButton";
 import { MAIN, STATISTICS } from "../../../Router/routes";
+import { saveConfiguration } from "../../../../redux/slices/configurationSlice";
+import { ButtonsContainerProps } from "./interface/buttonsContainer.interface";
+import { getQuestions } from "../../../../redux/slices/questionsSlice";
+import { loadQuestions } from "../../../../redux/slices/loadQuestionsSlice";
 
-const ButtonsContainer = () => {
+const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const onClickStartQuizHandler = () => {
+        dispatch(saveConfiguration(configuration));
         navigate(MAIN);
+        dispatch(getQuestions());
+        dispatch(loadQuestions());
     };
 
     const onClickSeeMyStatsHandler = () => {
-        navigate(STATISTICS)
+        navigate(STATISTICS);
     };
 
     return (

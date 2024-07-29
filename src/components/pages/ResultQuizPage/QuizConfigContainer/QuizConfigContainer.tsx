@@ -1,6 +1,9 @@
-import { QuizConfigContainerProps } from "./interface/quizConfigContainer.interface"
+import { useSelector } from "react-redux";
+import { Store } from "../../../../redux/store/interface/store.interface";
 
-const QuizConfigContainer = ({ quizConfig }: QuizConfigContainerProps) => {
+const QuizConfigContainer = () => {
+    const quizConfig = useSelector((state: Store) => state.configuration);
+
     return (
         <div className="quiz-config-container">
             <p>Category: <span>{quizConfig.category}</span> {' '}</p>
@@ -8,7 +11,7 @@ const QuizConfigContainer = ({ quizConfig }: QuizConfigContainerProps) => {
             <p>Type: <span>{quizConfig.type}</span> {' '}</p>
             <p>Time: <span>{quizConfig.time}</span></p>
         </div>
-    )
+    );
 }
 
 export { QuizConfigContainer };

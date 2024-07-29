@@ -6,7 +6,7 @@ const ResultContainer = ({ children, header }: ResultContainerProps) => {
             <h4>{header}: </h4>
             {children}
         </div>
-    )
-}
+    );
+};
 
 export { ResultContainer };

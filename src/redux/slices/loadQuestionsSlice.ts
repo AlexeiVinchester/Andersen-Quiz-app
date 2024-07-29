@@ -10,31 +10,53 @@ export const loadQuestions = createAsyncThunk(
     }
 );
 
+interface Data {
+    type: string,
+    difficulty: string,
+    category: string,
+    question: string,
+    correct_answer: string,
+    incorrect_answers: string[]
+}
+
+interface InitialState {
+    data: null | Data,
+    loading: boolean,
+    error: null | string | undefined
+}
+
+const initialStateObj: InitialState = {
+    data: null,
+    loading: false,
+    error: null
+};
+
 export const loadedQuestionsSlice = createSlice({
     name: 'loadedQuestions',
-    initialState: { data: null, loading: false, error: null},
+    initialState: { ...initialStateObj },
     reducers: {
-        clearLoadedQuestions(state) {
+        clearLoadedQuestions(state: InitialState) {
             state.data = null;
             state.loading = false;
             state.error = null;
         }
     },
     extraReducers: (builder) => {
-      builder
-        .addCase(loadQuestions.pending, (state) => {
-          state.loading = true;
-        })
-        .addCase(loadQuestions.fulfilled, (state, action) => {
-          state.loading = false;
-          state.data = action.payload;
-         
-        })
-        .addCase(loadQuestions.rejected, (state, action) => {
-          state.loading = false;
-          state.error = action.error.message
-        });
+        builder
+            .addCase(loadQuestions.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(loadQuestions.fulfilled, (state, action) => {
+                state.loading = false;
+                state.data = action.payload;
+
+            })
+            .addCase(loadQuestions.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message
+            });
     },
-  });
-  export const { clearLoadedQuestions } = loadedQuestionsSlice.actions;
-  export default loadedQuestionsSlice.reducer;
+});
+
+export const { clearLoadedQuestions } = loadedQuestionsSlice.actions;
+export default loadedQuestionsSlice.reducer;

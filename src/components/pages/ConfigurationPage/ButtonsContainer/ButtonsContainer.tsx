@@ -6,16 +6,20 @@ import { saveConfiguration } from "../../../../redux/slices/configurationSlice";
 import { ButtonsContainerProps } from "./interface/buttonsContainer.interface";
 import { getQuestions } from "../../../../redux/slices/questionsSlice";
 import { loadQuestions } from "../../../../redux/slices/loadQuestionsSlice";
+import { AppDispatch } from "../../../../redux/store/store";
 
 const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const useThunkDispatch = () => useDispatch<AppDispatch>();
+    const thunkDispatch = useThunkDispatch();
+
     const onClickStartQuizHandler = () => {
         dispatch(saveConfiguration(configuration));
         navigate(MAIN);
         dispatch(getQuestions());
-        dispatch(loadQuestions());
+        thunkDispatch(loadQuestions());
     };
 
     const onClickSeeMyStatsHandler = () => {

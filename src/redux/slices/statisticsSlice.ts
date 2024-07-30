@@ -1,16 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialStatistics } from "./interfaces/statisticsSlice.interface";
+import { StatisticsPayload } from "./interfaces/statisticsSlice.interface";
 
 const statisticsSlice = createSlice({
     name: 'statistics',
     initialState: { ...initialStatistics },
     reducers: {
         addCurrentQuizResultToStatistics(state, action) {
-            state.totalQuestions += action.payload.questions;
-            state.totalCorrectAnswers += action.payload.correctAnswers;
-            state.categories[action.payload.category] += action.payload.questions;
-            state.difficulties[action.payload.difficulty] += action.payload.questions;
-            state.types[action.payload.type] += action.payload.questions;
+            const {questions, correctAnswers, category, difficulty, type}: StatisticsPayload = action.payload;
+            state.totalQuestions += questions;
+            state.totalCorrectAnswers += correctAnswers;
+            state.categories[category] += questions;
+            state.difficulties[difficulty] += questions;
+            state.types[type] += questions;
         }
     }
 });

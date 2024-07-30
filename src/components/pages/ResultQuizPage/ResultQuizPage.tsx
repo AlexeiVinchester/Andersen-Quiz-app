@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { Store } from "../../../redux/store/interface/store.interface";
 import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
 import { useClearCurrentQuizData } from "../../../hooks/useClearCurrentQuizData";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { addCurrentQuizResultToStatistics } from "../../../redux/slices/statisticsSlice";
 
 const ResultQuizPage = () => {
@@ -31,7 +31,7 @@ const ResultQuizPage = () => {
         navigate(START);
     };
 
-    const saveStatistics = () => {
+    const saveStatistics = useCallback(() => {
         dispatch(addCurrentQuizResultToStatistics({
             questions: questions.length,
             correctAnswers,
@@ -39,12 +39,11 @@ const ResultQuizPage = () => {
             difficulty, 
             type
         }));
-    };
+    }, [correctAnswers, questions, category, difficulty, type, dispatch]);
 
     useEffect(() => {
-        console.log('Mounting result pade ande geting quiz results');
-        saveStatistics()
-    });
+        saveStatistics();
+    }, [saveStatistics]);
 
     return (
         <div className="result-quiz-page page-container">
@@ -64,6 +63,6 @@ const ResultQuizPage = () => {
             </div>
         </div>
     )
-}
+};
 
 export { ResultQuizPage };

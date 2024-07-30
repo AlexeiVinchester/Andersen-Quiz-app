@@ -6,7 +6,6 @@ const statisticsSlice = createSlice({
     initialState: { ...initialStatistics },
     reducers: {
         addCurrentQuizResultToStatistics(state, action) {
-            console.log(action.payload)
             state.totalQuestions += action.payload.questions;
             state.totalCorrectAnswers += action.payload.correctAnswers;
             state.categories[action.payload.category] += action.payload.questions;

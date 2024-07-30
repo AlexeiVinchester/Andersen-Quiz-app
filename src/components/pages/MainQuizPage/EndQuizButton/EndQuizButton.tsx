@@ -14,7 +14,6 @@ const EndQuizButton = () => {
     const onConfirmHandler = () => {
         clearCurrentQuizData();
         navigate(START);
-
     };
 
     return (

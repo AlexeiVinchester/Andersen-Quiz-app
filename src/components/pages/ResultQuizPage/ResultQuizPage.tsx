@@ -28,7 +28,6 @@ const ResultQuizPage = () => {
     const onClickAnotherQuizHandler = () => {
         clearCurrentQuizData();
         navigate(START);
-
     };
 
     return (

@@ -4,12 +4,13 @@ import { QuizConfigContainer } from "./QuizConfigContainer/QuizConfigContainer";
 import { ResultNumberField } from "./ResultNumberField/ResultNumberField";
 import { ResultContainer } from "./ResultContainer/ResultContainer";
 import { useNavigate } from "react-router-dom";
-import { MAIN } from "../../Router/routes";
+import { MAIN, START} from "../../Router/routes";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/store/interface/store.interface";
 import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
 import { useClearCurrentQuizData } from "../../../hooks/useClearCurrentQuizData";
+
 
 const ResultQuizPage = () => {
     const dispatch = useDispatch();
@@ -26,6 +27,8 @@ const ResultQuizPage = () => {
 
     const onClickAnotherQuizHandler = () => {
         clearCurrentQuizData();
+        navigate(START);
+
     };
 
     return (

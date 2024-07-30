@@ -2,14 +2,19 @@ import { useState } from "react";
 import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledButton";
 import { ModalPage } from "../../ModalPage/ModalPage";
 import { useClearCurrentQuizData } from "../../../../hooks/useClearCurrentQuizData";
+import { useNavigate } from "react-router-dom";
+import { START } from "../../../Router/routes";
 
 const EndQuizButton = () => {
     const [showModal, setShowModal] = useState(false);
     const onCloseModalHandler = () => setShowModal(!showModal);
     const clearCurrentQuizData = useClearCurrentQuizData();
+    const navigate = useNavigate();
 
     const onConfirmHandler = () => {
         clearCurrentQuizData();
+        navigate(START);
+
     };
 
     return (

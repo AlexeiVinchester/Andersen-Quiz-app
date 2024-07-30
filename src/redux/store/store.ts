@@ -5,7 +5,6 @@ import loadQuestionsReducer from '../slices/loadQuestionsSlice';
 import statisticsLoader from '../slices/statisticsSlice';
 import { configureStore } from '@reduxjs/toolkit';
 
-
 const newStore = configureStore({
     reducer: {
         configuration: configurationReducer,

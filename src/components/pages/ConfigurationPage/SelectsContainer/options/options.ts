@@ -1,9 +1,9 @@
 import { Option } from "./option.interface";
 
 const categories: Option[] = [
-    { value: 'sport', label: 'Sports' },
-    { value: 'programming', label: 'Geography' },
-    { value: 'travelling', label: 'Vehicles' },
+    { value: 'sports', label: 'Sports' },
+    { value: 'geography', label: 'Geography' },
+    { value: 'vehicles', label: 'Vehicles' },
 ];
 const difficulties: Option[] = [
     { value: 'easy', label: 'Easy' },

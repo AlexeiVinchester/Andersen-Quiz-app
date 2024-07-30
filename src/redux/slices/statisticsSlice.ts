@@ -1,34 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export const initialStatistics = {
-    totalQuestions: 0,
-    totalCorrectAnswers: 0,
-    difficulties: {
-        easy: 0,
-        medium: 0,
-        hard: 0
-    },
-    categories: {
-        sports: 0,
-        geography: 0,
-        vehicles: 0
-    },
-    types: {
-        group: 0,
-        boolean: 0
-    }
-};
+import { initialStatistics } from "./interfaces/statisticsSlice.interface";
 
 const statisticsSlice = createSlice({
     name: 'statistics',
-    initialState: {...initialStatistics},
+    initialState: { ...initialStatistics },
     reducers: {
         addCurrentQuizResultToStatistics(state, action) {
+            console.log(action.payload)
             state.totalQuestions += action.payload.questions;
             state.totalCorrectAnswers += action.payload.correctAnswers;
+            state.categories[action.payload.category] += action.payload.questions;
+            state.difficulties[action.payload.difficulty] += action.payload.questions;
+            state.types[action.payload.type] += action.payload.questions;
         }
     }
 });
 
-export const {addCurrentQuizResultToStatistics} = statisticsSlice.actions;
+export const { addCurrentQuizResultToStatistics } = statisticsSlice.actions;
 export default statisticsSlice.reducer;

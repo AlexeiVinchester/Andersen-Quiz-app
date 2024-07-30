@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { AsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../store/store";
 import { AppDispatch } from "../store/store";
-import { Data, initialStateObj, InitialState } from "./interfaces/loadQuestionsSlice.interface";
+import { Data, initialStateObj } from "./interfaces/loadQuestionsSlice.interface";
 
 export const loadQuestions: AsyncThunk<Data, void, {dispatch: AppDispatch, state: RootState}> = createAsyncThunk(
     'fetchedQuestions/fetchQuestions',
@@ -18,7 +18,7 @@ export const loadedQuestionsSlice = createSlice({
     name: 'loadedQuestions',
     initialState: { ...initialStateObj },
     reducers: {
-        clearLoadedQuestions(state: InitialState) {
+        clearLoadedQuestions(state) {
             state.data = null;
             state.loading = false;
             state.error = null;

@@ -10,14 +10,15 @@ import { useSelector } from "react-redux";
 import { Store } from "../../../redux/store/interface/store.interface";
 import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
 import { useClearCurrentQuizData } from "../../../hooks/useClearCurrentQuizData";
-
+import { useEffect } from "react";
+import { addCurrentQuizResultToStatistics } from "../../../redux/slices/statisticsSlice";
 
 const ResultQuizPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const result = useSelector((state: Store) => state.result);
+    const correctAnswers = useSelector((state: Store) => state.result.correctAnswers);
     const questions = useSelector((state: Store) => state.questions);
-
+    const {category, difficulty, type} = useSelector((state: Store) => state.configuration);
     const clearCurrentQuizData = useClearCurrentQuizData(); 
 
     const onClickRestartQuizHandler = () => {
@@ -30,14 +31,29 @@ const ResultQuizPage = () => {
         navigate(START);
     };
 
+    const saveStatistics = () => {
+        dispatch(addCurrentQuizResultToStatistics({
+            questions: questions.length,
+            correctAnswers,
+            category,
+            difficulty, 
+            type
+        }));
+    };
+
+    useEffect(() => {
+        console.log('Mounting result pade ande geting quiz results');
+        saveStatistics()
+    });
+
     return (
         <div className="result-quiz-page page-container">
             <h4>Thank you for completing this quiz. Here are your results</h4>
             <div className="flex-row">
                 <ResultContainer header="Quiz results" >
                     <ResultNumberField text="Total questions" value={questions.length} />
-                    <ResultNumberField text="Correct answers" value={result.correctAnswers} />
-                    <ResultNumberField text="Wrong answers" value={questions.length - result.correctAnswers} />
+                    <ResultNumberField text="Correct answers" value={correctAnswers} />
+                    <ResultNumberField text="Wrong answers" value={questions.length - correctAnswers} />
                     <FinishTime startTime={Date.now().toString()} />
                     <StyledButton onClickHandler={onClickRestartQuizHandler} text="Restart quiz" />
                 </ResultContainer>

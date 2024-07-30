@@ -5,9 +5,6 @@ import { RESULT } from "../../Router/routes";
 import { useInitialiseTimer } from "../../../hooks/useInitialiseTimer";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/store/interface/store.interface";
-import { useEffect } from "react";
-import { addCurrentQuizResultToStatistics } from "../../../redux/slices/statisticsSlice";
-import { useDispatch } from "react-redux";
 
 const MainQuizPage = () => {
     const {
@@ -20,27 +17,12 @@ const MainQuizPage = () => {
     } = useInitialiseTimer();
 
     const questions = useSelector((state: Store) => state.questions);
-    const dispatch = useDispatch();
 
     const onChangeQuestionHandler = () => {
         return activeQuestionIndex === questions.length - 1 ?
                navigate(RESULT) :
                setActiveQuestionIndex((prev) => prev + 1);
     };
-
-    const {category, difficulty, type} = useSelector((state: Store) => state.configuration);
-
-    useEffect(() => {
-        console.log('Mounting main page')
-            dispatch(addCurrentQuizResultToStatistics({
-                questions: questions.length,
-                correctAnswers: 5,
-                category,
-                difficulty,
-                type
-            }));
-        
-    }, [category, difficulty, type, questions.length, dispatch])
 
     return (
         <div className="main-quiz-page page-container">

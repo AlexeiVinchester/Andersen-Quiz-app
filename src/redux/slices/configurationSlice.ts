@@ -16,10 +16,11 @@ const configurationSlice = createSlice({
             
         },
         clearConfiguration(state) {
-            state.category = '';
-            state.difficulty = '';
-            state.time = '';
-            state.type = '';
+            const {category, difficulty, time, type} = initialQuizConfig;
+            state.category = category;
+            state.difficulty = difficulty;
+            state.time = time;
+            state.type = type;
         }
     }
 });

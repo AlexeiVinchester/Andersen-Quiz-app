@@ -1,6 +1,8 @@
+import { Categories, Difficulties, Types } from "../../redux/slices/interfaces/statisticsSlice.interface";
+
 export interface QuizConfig {
-    category: string,
-    difficulty: string,
-    type: string,
+    category: keyof Categories,
+    difficulty: keyof Difficulties,
+    type: keyof Types,
     time: string
 }

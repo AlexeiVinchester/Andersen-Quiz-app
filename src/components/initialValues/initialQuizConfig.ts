@@ -1,8 +1,8 @@
 import { QuizConfig } from "../spreadedInterfaces/quizConfig.interface";
 
 export const initialQuizConfig: QuizConfig = {
-    category: '',
-    difficulty: '',
-    type: '',
+    category: 'sports',
+    difficulty: 'easy',
+    type: 'group',
     time: ''
 }

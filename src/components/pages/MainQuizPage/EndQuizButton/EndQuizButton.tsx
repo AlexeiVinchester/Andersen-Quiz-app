@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../../../spreadedComponents/StyledButton/StyledButton";
 import { ModalPage } from "../../ModalPage/ModalPage";
+import { useClearCurrentQuizData } from "../../../../hooks/useClearCurrentQuizData";
+import { useNavigate } from "react-router-dom";
 import { START } from "../../../Router/routes";
 
 const EndQuizButton = () => {
     const [showModal, setShowModal] = useState(false);
-    const navigate = useNavigate();
     const onCloseModalHandler = () => setShowModal(!showModal);
-    const onNavigateToResultHandler = () => navigate(START);
+    const clearCurrentQuizData = useClearCurrentQuizData();
+    const navigate = useNavigate();
+
+    const onConfirmHandler = () => {
+        clearCurrentQuizData();
+        navigate(START);
+    };
 
     return (
         <>
@@ -16,7 +22,7 @@ const EndQuizButton = () => {
             <ModalPage
                 isOpen={showModal}
                 setShowModal={onCloseModalHandler}
-                onConfirm={onNavigateToResultHandler}
+                onConfirm={onConfirmHandler}
             >
                 <div className="title">
                     <h1>Are you sure you want to finish quiz?</h1>

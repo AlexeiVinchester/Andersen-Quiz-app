@@ -1,18 +1,21 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Store } from "../../../redux/store/interface/store.interface";
 import { ResultContainer } from "../ResultQuizPage/ResultContainer/ResultContainer";
 import { ResultNumberField } from "../ResultQuizPage/ResultNumberField/ResultNumberField";
-import { useNavigate } from "react-router-dom";
-import { START } from "../../Router/routes";
 import { StyledButton } from "../../spreadedComponents/StyledButton/StyledButton";
+import { START } from "../../Router/routes";
+import { Statistics } from "../../../redux/slices/interfaces/statisticsSlice.interface";
 
 const StatisticsPage = () => {
-    const { totalQuestions, totalCorrectAnswers, difficulties, categories, types } = useSelector((state: Store) => state.statistics);
+    const { totalQuestions, totalCorrectAnswers, difficulties, categories, types }: Statistics = useSelector((state: Store) => state.statistics);
     const navigate = useNavigate();
 
     const onClickReturnToConfigurationHandler = () => {
         navigate(START);
     };
+
+    console.log(Object.entries(difficulties))
 
     return (
         <div className="statistics-page page-container flex-col">
@@ -23,33 +26,33 @@ const StatisticsPage = () => {
             <div className="flex-row statistics-group">
                 <ResultContainer header="Difficulties">
                     {
-                        Object.keys(difficulties).map(difficulty => (
+                        Object.entries(difficulties).map(item => (
                             <ResultNumberField
-                                key={difficulty}
-                                text={difficulty}
-                                value={difficulties[difficulty]}
+                                key={item[0]}
+                                text={item[0]}
+                                value={item[1]}
                             />
                         ))
                     }
                 </ResultContainer>
                 <ResultContainer header="Categories">
                     {
-                        Object.keys(categories).map(category => (
+                        Object.entries(categories).map(item => (
                             <ResultNumberField
-                                text={category}
-                                value={categories[category]}
-                                key={category}
+                                key={item[0]}
+                                text={item[0]}
+                                value={item[1]}
                             />
                         ))
                     }
                 </ResultContainer>
                 <ResultContainer header="Types">
                     {
-                        Object.keys(types).map(type => (
+                        Object.entries(types).map(item => (
                             <ResultNumberField
-                                text={type}
-                                value={types[type]}
-                                key={type}
+                                key={item[0]}
+                                text={item[0]}
+                                value={item[1]}
                             />
                         ))
                     }

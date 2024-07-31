@@ -23,14 +23,6 @@ export interface Statistics {
     types: Types
 }
 
-export interface StatisticsPayload {
-    questions: number,
-    correctAnswers: number,
-    difficulty: keyof Difficulties,
-    category: keyof Categories,
-    type: keyof Types
-}
-
 export const initialStatistics: Statistics = {
     totalQuestions: 0,
     totalCorrectAnswers: 0,
@@ -49,3 +41,11 @@ export const initialStatistics: Statistics = {
         boolean: 0
     }
 };
+
+export interface StatisticsPayload {
+    questions: number,
+    correctAnswers: number,
+    difficulty: keyof Difficulties,
+    category: keyof Categories,
+    type: keyof Types
+}

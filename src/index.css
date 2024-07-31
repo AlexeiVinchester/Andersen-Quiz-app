@@ -250,3 +250,29 @@ label {
   color: #dc4c1d;
 }
 
+.statistics-page {
+  justify-content: center;
+  width: 1000px;
+}
+
+.statistics-page h4 {
+  color: #aa076b;
+}
+
+.statistics-group p {
+  text-align: left;
+}
+
+.statistics-page span {
+  color: #aa076b;
+}
+
+.statistics-page button {
+  margin-top: 30px;
+  width: 300px
+}
+
+.statistics-button-to-start {
+  display: flex;
+  justify-content: center;
+}

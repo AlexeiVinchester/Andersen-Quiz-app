@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface ResultContainerProps {
+export interface InfoContainerProps {
     header: string,
     children: React.ReactNode
 }

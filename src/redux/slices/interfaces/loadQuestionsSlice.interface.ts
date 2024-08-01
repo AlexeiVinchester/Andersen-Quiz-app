@@ -8,13 +8,20 @@ export interface Data {
 }
 
 export interface InitialState {
-    data: null | Data,
+    data: Data[],
     loading: boolean,
     error: null | string | undefined
 }
 
 export const initialStateObj: InitialState = {
-    data: null,
+    data: [{
+        type: '',
+        difficulty: '',
+        category: '',
+        question: '',
+        correct_answer: '',
+        incorrect_answers: ['','','']
+    }],
     loading: false,
     error: null
 };

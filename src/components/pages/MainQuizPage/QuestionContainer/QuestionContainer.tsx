@@ -6,18 +6,18 @@ const QuestionContainer = ({ question, onChangeQuestion}: QuestionContainerProps
     const dispatch = useDispatch();
 
     const onClickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        if(e.currentTarget.name === question.correctAnswer) {
+        if(e.currentTarget.name === question.correct_answer) {
             dispatch(incrementCorrectAnswers());
         }
         onChangeQuestion();
     }
-    
+
     return (
         <div className="question-container">
             <h4 className="question-text">{question.question}</h4>
             <div className="qroup-question-buttons">
                 {
-                    question.choices.map((answerButtonText: string) => (
+                    [...question.incorrect_answers, question.correct_answer].map((answerButtonText: string) => (
                         <button 
                             key={answerButtonText} 
                             type="button"

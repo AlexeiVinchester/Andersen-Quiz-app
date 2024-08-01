@@ -1,10 +1,11 @@
-import { QuestionContainer } from "./QuestionContainer/QuestionContainer";
-import { EndQuizButton } from "./EndQuizButton/EndQuizButton";
-import { ProgressBarContainer } from "./ProgressBarContainer/ProgressBarContainer";
-import { RESULT } from "../../Router/routes";
-import { useInitialiseTimer } from "../../../hooks/useInitialiseTimer";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/store/interface/store.interface";
+import { RESULT } from "../../Router/routes";
+import { EndQuizButton } from "./EndQuizButton/EndQuizButton";
+import { ProgressBarContainer } from "./ProgressBarContainer/ProgressBarContainer";
+import { useInitialiseTimer } from "../../../hooks/useInitialiseTimer";
+import { QuestionContainer } from "./QuestionContainer/QuestionContainer";
+import { Loader } from "../../spreadedComponents/Loader/Loader";
 
 const MainQuizPage = () => {
     const {
@@ -17,24 +18,31 @@ const MainQuizPage = () => {
         isDanger
     } = useInitialiseTimer();
 
-    const questions = useSelector((state: Store) => state.questions);
+    const { data: questions, loading } = useSelector((state: Store) => state.loadedQuestions);
 
     const onChangeQuestionHandler = () => {
         return activeQuestionIndex === questions.length - 1 ?
-               navigate(RESULT, {state: {seconds}}) :
-               setActiveQuestionIndex((prev) => prev + 1);
+            navigate(RESULT, { state: { seconds } }) :
+            setActiveQuestionIndex((prev) => prev + 1);
     };
 
     return (
         <div className="main-quiz-page page-container">
-            <QuestionContainer
-                question={questions[activeQuestionIndex]}
-                onChangeQuestion={onChangeQuestionHandler}
-            />
-            <ProgressBarContainer
-                currentQuestion={activeQuestionIndex + 1}
-                numberOfQuestions={questions.length}
-            />
+            {
+                !loading ?
+                    <>
+                        <QuestionContainer
+                            question={questions[activeQuestionIndex]}
+                            onChangeQuestion={onChangeQuestionHandler}
+                        />
+                        <ProgressBarContainer
+                            currentQuestion={activeQuestionIndex + 1}
+                            numberOfQuestions={questions.length}
+                        />
+                    </>
+                    : <Loader />
+            }
+
             <div className="main-quiz-page-footer">
                 <div className="timer-container">
                     Timer: {" "}

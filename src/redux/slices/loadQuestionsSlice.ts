@@ -5,7 +5,7 @@ import { RootState } from "../store/store";
 import { AppDispatch } from "../store/store";
 import { Data, initialStateObj } from "./interfaces/loadQuestionsSlice.interface";
 
-export const loadQuestions: AsyncThunk<Data, void, {dispatch: AppDispatch, state: RootState}> = createAsyncThunk(
+export const loadQuestions: AsyncThunk<Data[], void, {dispatch: AppDispatch, state: RootState}> = createAsyncThunk(
     'fetchedQuestions/fetchQuestions',
     async () => {
         const response = await fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple');
@@ -19,7 +19,7 @@ export const loadedQuestionsSlice = createSlice({
     initialState: { ...initialStateObj },
     reducers: {
         clearLoadedQuestions(state) {
-            state.data = null;
+            state.data = initialStateObj.data;
             state.loading = false;
             state.error = null;
         }
@@ -32,7 +32,6 @@ export const loadedQuestionsSlice = createSlice({
             .addCase(loadQuestions.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
-
             })
             .addCase(loadQuestions.rejected, (state, action) => {
                 state.loading = false;

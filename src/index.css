@@ -276,3 +276,8 @@ label {
   display: flex;
   justify-content: center;
 }
+
+.loader {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -49,7 +49,7 @@ const ResultQuizPage = () => {
                     <ResultNumberField text="Total questions" value={questions.length} />
                     <ResultNumberField text="Correct answers" value={correctAnswers} />
                     <ResultNumberField text="Wrong answers" value={questions.length - correctAnswers} />
-                    <FinishTime startTime={Date.now().toString()} />
+                    <FinishTime />
                     <StyledButton onClickHandler={onClickRestartQuizHandler} text="Restart quiz" />
                 </InfoContainer>
                 <InfoContainer header="Quiz configuration">

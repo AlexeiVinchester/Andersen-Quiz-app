@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGetInitialTime } from "./useGetInitialTime";
 import { RESULT } from "../components/Router/routes";
 
 const useInitialiseTimer = () => {
+
+    const initialTime = useGetInitialTime();
     const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
-    const [seconds, setSeconds] = useState(20);
+    const [seconds, setSeconds] = useState(initialTime);
     const navigate = useNavigate();
 
     const minutesString = String(Math.floor(seconds / 60)).padStart(2, '0');
@@ -13,7 +16,7 @@ const useInitialiseTimer = () => {
 
     useEffect(() => {
         const timerId = setInterval(() => setSeconds((prev) => Math.max(prev - 1, 0)), 1000);
-        if (seconds <= 0) navigate(RESULT);
+        if (seconds <= 0) navigate(RESULT, {state: {seconds}});
         return () => {
             clearInterval(timerId);
         };

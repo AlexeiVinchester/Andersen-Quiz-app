@@ -8,6 +8,7 @@ import { Store } from "../../../redux/store/interface/store.interface";
 
 const MainQuizPage = () => {
     const {
+        seconds,
         activeQuestionIndex,
         setActiveQuestionIndex,
         navigate,
@@ -20,7 +21,7 @@ const MainQuizPage = () => {
 
     const onChangeQuestionHandler = () => {
         return activeQuestionIndex === questions.length - 1 ?
-               navigate(RESULT) :
+               navigate(RESULT, {state: {seconds}}) :
                setActiveQuestionIndex((prev) => prev + 1);
     };
 

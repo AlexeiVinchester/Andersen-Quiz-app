@@ -5,12 +5,18 @@ import { RootState } from "../store/store";
 import { AppDispatch } from "../store/store";
 import { Data, initialStateObj } from "./interfaces/loadQuestionsSlice.interface";
 import { QuizConfig } from "../../components/spreadedInterfaces/quizConfig.interface";
+import { categories } from "../../components/initialValues/category";
 
-export const loadQuestions: AsyncThunk<Data[], QuizConfig, {dispatch: AppDispatch, state: RootState}> = createAsyncThunk(
+export const loadQuestions: AsyncThunk<Data[], QuizConfig, { dispatch: AppDispatch, state: RootState }> = createAsyncThunk(
     'loadedQuestions/loadQuestions',
     async (configuration) => {
-        const {difficulty, amount} = configuration;
-        const response = await fetch(`https://opentdb.com/api.php?amount=${amount}&category=22&difficulty=${difficulty}&type=multiple`);
+        const { difficulty, amount, type, category } = configuration;
+        let response;
+        if (type === 'boolean') {
+            response = await fetch(`https://opentdb.com/api.php?amount=${amount}&type=boolean`);
+        } else {
+            response = await fetch(`https://opentdb.com/api.php?amount=${amount}&category=${categories[category]}&difficulty=${difficulty}&type=multiple`);
+        }
         const data = await response.json();
         return data.results;
     }

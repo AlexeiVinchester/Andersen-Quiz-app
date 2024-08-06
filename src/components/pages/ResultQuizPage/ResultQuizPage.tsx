@@ -1,28 +1,29 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useClearCurrentQuizData } from "../../../hooks/useClearCurrentQuizData";
+import { addCurrentQuizResultToStatistics } from "../../../redux/slices/statisticsSlice";
+import { clearCorrectAnswers, clearSeconds } from "../../../redux/slices/resultSlice";
 import { StyledButton } from "../../spreadedComponents/StyledButton/StyledButton";
-import { FinishTime } from "./FinishTime/FinishTime";
 import { QuizConfigContainer } from "./QuizConfigContainer/QuizConfigContainer";
 import { ResultNumberField } from "./ResultNumberField/ResultNumberField";
+import { FinishTime } from "./FinishTime/FinishTime";
 import { InfoContainer } from "../../spreadedComponents/InfoContainer/InfoContainer";
-import { useNavigate } from "react-router-dom";
-import { MAIN, START} from "../../Router/routes";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { Store } from "../../../redux/store/interface/store.interface";
-import { clearCorrectAnswers } from "../../../redux/slices/resultSlice";
-import { useClearCurrentQuizData } from "../../../hooks/useClearCurrentQuizData";
-import { useEffect } from "react";
-import { addCurrentQuizResultToStatistics } from "../../../redux/slices/statisticsSlice";
+import { MAIN, START } from "../../Router/routes";
 
 const ResultQuizPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const correctAnswers = useSelector((state: Store) => state.result.correctAnswers);
     const questions = useSelector((state: Store) => state.loadedQuestions.data);
-    const {category, difficulty, type} = useSelector((state: Store) => state.configuration);
-    const clearCurrentQuizData = useClearCurrentQuizData(); 
+    const { category, difficulty, type } = useSelector((state: Store) => state.configuration);
+    const clearCurrentQuizData = useClearCurrentQuizData();
 
     const onClickRestartQuizHandler = () => {
         dispatch(clearCorrectAnswers());
+        dispatch(clearSeconds());
         navigate(MAIN);
     };
 
@@ -36,7 +37,7 @@ const ResultQuizPage = () => {
             questions: questions.length,
             correctAnswers,
             category,
-            difficulty, 
+            difficulty,
             type
         }));
     }, [correctAnswers, questions, category, difficulty, type, dispatch]);

@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useGetInitialTime } from "./useGetInitialTime";
+import { useSelector } from "react-redux";
 import { incrementSeconds } from "../redux/slices/resultSlice";
 import { RESULT } from "../components/Router/routes";
+import { Store } from "../redux/store/interface/store.interface";
 
 const useInitialiseTimer = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const initialTime = useGetInitialTime();
+    const initialTime = +useSelector((state: Store) => state.configuration.time)[0] * 60;
     const [seconds, setSeconds] = useState(initialTime);
 
     const minutesString = String(Math.floor(seconds / 60)).padStart(2, '0');

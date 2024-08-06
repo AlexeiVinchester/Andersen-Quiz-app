@@ -2,10 +2,12 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { incrementCorrectAnswers } from "../../../../redux/slices/resultSlice";
 import { ProgressBarContainer } from "../ProgressBarContainer/ProgressBarContainer";
 import { Store } from "../../../../redux/store/interface/store.interface";
 import { RESULT } from "../../../Router/routes";
+import { buttonsVariants } from "./Styles/QuestionContainer.styles";
 
 const QuestionContainer = () => {
     const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
@@ -30,14 +32,18 @@ const QuestionContainer = () => {
             <h4 className="question-text">{question.question}</h4>
             <div className="qroup-question-buttons">
                 {
-                    [...question.incorrect_answers, question.correct_answer].map((answerButtonText: string) => (
-                        <button
+                    [...question.incorrect_answers, question.correct_answer].map((answerButtonText: string, i: number) => (
+                        <motion.button
                             key={answerButtonText}
                             type="button"
                             name={answerButtonText}
                             onClick={onClickHandler}
+                            variants={buttonsVariants}
+                            initial='hidden'
+                            animate='visible'
+                            custom={i}
                         >{answerButtonText}
-                        </button>
+                        </motion.button>
                     ))
                 }
             </div>

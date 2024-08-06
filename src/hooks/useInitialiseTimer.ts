@@ -20,7 +20,7 @@ const useInitialiseTimer = () => {
             setSeconds((prev) => Math.max(prev - 1, 0));
             dispatch(incrementSeconds());
         }, 1000);
-        if (seconds <= 0) navigate(RESULT, { state: { seconds } });
+        if (seconds <= 0) navigate(RESULT);
         return () => {
             clearInterval(timerId);
         };

@@ -17,7 +17,7 @@ const ResultQuizPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const correctAnswers = useSelector((state: Store) => state.result.correctAnswers);
-    const questions = useSelector((state: Store) => state.questions);
+    const questions = useSelector((state: Store) => state.loadedQuestions.data);
     const {category, difficulty, type} = useSelector((state: Store) => state.configuration);
     const clearCurrentQuizData = useClearCurrentQuizData(); 
 

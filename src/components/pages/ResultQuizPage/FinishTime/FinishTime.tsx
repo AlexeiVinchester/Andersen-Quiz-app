@@ -1,8 +1,9 @@
+import { useSelector } from "react-redux";
 import { useGetInitialTime } from "../../../../hooks/useGetInitialTime";
-import { useGetStopTime } from "../../../../hooks/useGetStopTime";
+import { Store } from "../../../../redux/store/interface/store.interface";
 
 const FinishTime = () => {
-    const stopTime = useGetStopTime();
+    const stopTime = useSelector((state: Store) => state.result.seconds);
     const initialTime = useGetInitialTime();
     const minutes = String(Math.floor((initialTime - stopTime) / 60));
     const seconds = String((initialTime - stopTime) % 60);

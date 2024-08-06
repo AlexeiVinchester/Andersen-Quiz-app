@@ -19,7 +19,7 @@ const ButtonsContainer = ({configuration}: ButtonsContainerProps) => {
         dispatch(saveConfiguration(configuration));
         navigate(MAIN);
         dispatch(getQuestions());
-        thunkDispatch(loadQuestions());
+        thunkDispatch(loadQuestions(configuration));
     };
 
     const onClickSeeMyStatsHandler = () => {

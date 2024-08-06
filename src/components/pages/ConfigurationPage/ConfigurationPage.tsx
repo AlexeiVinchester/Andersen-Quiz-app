@@ -8,10 +8,16 @@ import { QuizConfig } from "../../spreadedInterfaces/quizConfig.interface";
 
 const ConfigurationPage = () => {
     const [configuration, setConfiguration] = useState<QuizConfig>(initialQuizConfig);
-
+    console.log(configuration)
     return (
         <div className='configuration-page page-container'>
-            <NumberOfQuestionsContainer />
+            <NumberOfQuestionsContainer  
+                placeholder="Enter number of questions from 5 to 15!"
+                label="Number of questions"
+                min={5}
+                max={15}
+                onChangeNumber={setConfiguration}
+            />
             <SelectContainer onChangeSelectField={setConfiguration}/>
             <ButtonsContainer configuration={configuration}/>
         </div>

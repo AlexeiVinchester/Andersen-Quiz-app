@@ -16,6 +16,7 @@ const QuestionContainer = () => {
     const { data: questions } = useSelector((state: Store) => state.loadedQuestions);
     const seconds = useSelector((state: Store) => state.result.seconds);
     const question = questions[activeQuestionIndex];
+    const answers = [...question.incorrect_answers, question.correct_answer];
 
     const onClickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         if (e.currentTarget.name === question.correct_answer) {
@@ -32,7 +33,7 @@ const QuestionContainer = () => {
             <h4 className="question-text">{question.question}</h4>
             <div className="qroup-question-buttons">
                 {
-                    [...question.incorrect_answers, question.correct_answer].map((answerButtonText: string, i: number) => (
+                    answers.map((answerButtonText: string, i: number) => (
                         <motion.button
                             key={answerButtonText}
                             type="button"

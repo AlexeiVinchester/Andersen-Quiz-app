@@ -6,7 +6,7 @@ const TimerContainer = () => {
     return (
         <div className="timer-container">
             Timer: {" "}
-            <span className={isDanger ? "timer-container-danger" : ""}>
+            <span className={String(isDanger && "timer-container-danger")}>
                 {minutesString} : {secondsString}
             </span>
         </div>

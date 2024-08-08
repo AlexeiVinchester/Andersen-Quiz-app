@@ -7,16 +7,10 @@ import { TimerContainer } from "./TimerContainer/TimerContainer";
 
 const MainQuizPage = () => {
     const { loading } = useSelector((state: Store) => state.loadedQuestions);
-    
+
     return (
         <div className="main-quiz-page page-container">
-            {
-                !loading ?
-                    <>
-                        <QuestionContainer/>
-                    </>
-                    : <Loader />
-            }
+            {loading ? <Loader /> : <QuestionContainer />}
             <div className="main-quiz-page-footer">
                 <TimerContainer />
                 <EndQuizButton />

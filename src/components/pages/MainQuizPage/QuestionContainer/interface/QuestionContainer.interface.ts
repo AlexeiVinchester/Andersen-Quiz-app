@@ -1,7 +1,7 @@
-import { Question } from "./question.interface";
+import { Data } from "../../../../../redux/slices/interfaces/loadQuestionsSlice.interface";
 
 export interface QuestionContainerProps {
-    question: Question,
+    question: Data,
     onChangeQuestion: () => void
 }
 

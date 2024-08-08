@@ -4,11 +4,19 @@ import { AsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../store/store";
 import { AppDispatch } from "../store/store";
 import { Data, initialStateObj } from "./interfaces/loadQuestionsSlice.interface";
+import { QuizConfig } from "../../components/spreadedInterfaces/quizConfig.interface";
+import { categories } from "../../components/initialValues/category";
 
-export const loadQuestions: AsyncThunk<Data, void, {dispatch: AppDispatch, state: RootState}> = createAsyncThunk(
-    'fetchedQuestions/fetchQuestions',
-    async () => {
-        const response = await fetch('https://opentdb.com/api.php?amount=10&category=22&difficulty=medium&type=multiple');
+export const loadQuestions: AsyncThunk<Data[], QuizConfig, { dispatch: AppDispatch, state: RootState }> = createAsyncThunk(
+    'loadedQuestions/loadQuestions',
+    async (configuration) => {
+        const { difficulty, amount, type, category } = configuration;
+        let response;
+        if (type === 'boolean') {
+            response = await fetch(`https://opentdb.com/api.php?amount=${amount}&type=boolean`);
+        } else {
+            response = await fetch(`https://opentdb.com/api.php?amount=${amount}&category=${categories[category]}&difficulty=${difficulty}&type=multiple`);
+        }
         const data = await response.json();
         return data.results;
     }
@@ -19,7 +27,7 @@ export const loadedQuestionsSlice = createSlice({
     initialState: { ...initialStateObj },
     reducers: {
         clearLoadedQuestions(state) {
-            state.data = null;
+            state.data = initialStateObj.data;
             state.loading = false;
             state.error = null;
         }
@@ -32,7 +40,6 @@ export const loadedQuestionsSlice = createSlice({
             .addCase(loadQuestions.fulfilled, (state, action) => {
                 state.loading = false;
                 state.data = action.payload;
-
             })
             .addCase(loadQuestions.rejected, (state, action) => {
                 state.loading = false;

@@ -8,19 +8,21 @@ const configurationSlice = createSlice({
     },
     reducers: {
         saveConfiguration(state, action) {
-            const {category, difficulty, type, time} = action.payload;
+            const {category, difficulty, type, time, amount} = action.payload;
             state.category = category;
             state.difficulty = difficulty;
             state.time = time;
             state.type = type;
+            state.amount = amount;
             
         },
         clearConfiguration(state) {
-            const {category, difficulty, time, type} = initialQuizConfig;
+            const {category, difficulty, time, type, amount} = initialQuizConfig;
             state.category = category;
             state.difficulty = difficulty;
             state.time = time;
             state.type = type;
+            state.amount = amount
         }
     }
 });

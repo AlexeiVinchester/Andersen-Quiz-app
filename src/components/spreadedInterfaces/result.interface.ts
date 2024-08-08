@@ -1,3 +1,4 @@
 export interface Result {
-    correctAnswers: number
+    correctAnswers: number,
+    seconds: number
 }

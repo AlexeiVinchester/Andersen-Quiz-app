@@ -1,46 +1,18 @@
-import { QuestionContainer } from "./QuestionContainer/QuestionContainer";
-import { EndQuizButton } from "./EndQuizButton/EndQuizButton";
-import { ProgressBarContainer } from "./ProgressBarContainer/ProgressBarContainer";
-import { RESULT } from "../../Router/routes";
-import { useInitialiseTimer } from "../../../hooks/useInitialiseTimer";
 import { useSelector } from "react-redux";
 import { Store } from "../../../redux/store/interface/store.interface";
+import { EndQuizButton } from "./EndQuizButton/EndQuizButton";
+import { QuestionContainer } from "./QuestionContainer/QuestionContainer";
+import { Loader } from "../../spreadedComponents/Loader/Loader";
+import { TimerContainer } from "./TimerContainer/TimerContainer";
 
 const MainQuizPage = () => {
-    const {
-        activeQuestionIndex,
-        setActiveQuestionIndex,
-        navigate,
-        minutesString,
-        secondsString,
-        isDanger
-    } = useInitialiseTimer();
-
-    const questions = useSelector((state: Store) => state.questions);
-
-    const onChangeQuestionHandler = () => {
-        return activeQuestionIndex === questions.length - 1 ?
-               navigate(RESULT) :
-               setActiveQuestionIndex((prev) => prev + 1);
-    };
+    const { loading } = useSelector((state: Store) => state.loadedQuestions);
 
     return (
         <div className="main-quiz-page page-container">
-            <QuestionContainer
-                question={questions[activeQuestionIndex]}
-                onChangeQuestion={onChangeQuestionHandler}
-            />
-            <ProgressBarContainer
-                currentQuestion={activeQuestionIndex + 1}
-                numberOfQuestions={questions.length}
-            />
+            {loading ? <Loader /> : <QuestionContainer />}
             <div className="main-quiz-page-footer">
-                <div className="timer-container">
-                    Timer: {" "}
-                    <span className={isDanger ? "timer-container-danger" : ""}>
-                        {minutesString} : {secondsString}
-                    </span>
-                </div>
+                <TimerContainer />
                 <EndQuizButton />
             </div>
         </div>

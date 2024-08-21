@@ -1,7 +1,7 @@
 import { useId } from "react";
 import { NumberInputContainerProps } from "./interfaces/NumberInputContainer.interface";
 
-const NumberOfQuestionsContainer = ({ placeholder, label, min, max, onChangeNumber }: NumberInputContainerProps) => {
+const NumberOfQuestionsContainer = ({ placeholder, label, min, max, onChangeNumber, ...props }: NumberInputContainerProps) => {
     const inputId = useId();
 
     const onChangeNumberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,13 +10,14 @@ const NumberOfQuestionsContainer = ({ placeholder, label, min, max, onChangeNumb
                 ...prev,
                 amount: +e.target.value
             };
-        })
+        });
     };
 
     return (
         <div className="number-input-container">
             <label htmlFor={inputId} className="number-input-label">{label}</label>
             <input
+                {...props}
                 type="number"
                 min={min}
                 max={max}
@@ -24,6 +25,7 @@ const NumberOfQuestionsContainer = ({ placeholder, label, min, max, onChangeNumb
                 className="form-control"
                 placeholder={placeholder}
                 onChange={onChangeNumberHandler}
+                defaultValue={5}
             />
         </div>
     );

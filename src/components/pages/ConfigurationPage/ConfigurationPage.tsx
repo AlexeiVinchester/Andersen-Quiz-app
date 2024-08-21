@@ -8,7 +8,6 @@ import { QuizConfig } from "../../spreadedInterfaces/quizConfig.interface";
 
 const ConfigurationPage = () => {
     const [configuration, setConfiguration] = useState<QuizConfig>(initialQuizConfig);
-    console.log(configuration)
     return (
         <div className='configuration-page page-container'>
             <NumberOfQuestionsContainer  

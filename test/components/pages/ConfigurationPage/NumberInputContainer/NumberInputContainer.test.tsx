@@ -35,7 +35,7 @@ describe('testing of NumberOfQuestionsContainer', () => {
             expect(input.tagName).toBe('INPUT')
         });
 
-        test('user change number of questions - called onChangeNumber', async () => {
+        test('User change number of questions - called onChangeNumber', async () => {
             await userEvent.type(input, '5666')
             expect(onChangeNumber).toBeCalledTimes(4)                       
         });

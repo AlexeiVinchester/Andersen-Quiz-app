@@ -1,30 +1,29 @@
 import { useId } from 'react';
-import Select from 'react-select';
-import { SingleValue } from 'react-select';
 import { SelectInputProps } from './interfaces/SelectInput.interface';
-import { Option } from '../options/option.interface';
 
-const SelectInput = ({ label, options, onChangeSelectField }: SelectInputProps): JSX.Element => {
+const SelectInput = ({ label, options, onChangeSelectField, ...props }: SelectInputProps): JSX.Element => {
 
     const selectInputId = useId();
 
-    const onChangeHandler = (e: SingleValue<Option>) => {
+    const onChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
         onChangeSelectField((prev) => {
             return {
                 ...prev,
-                [label]: e?.value
-            };
-        });
+                [label]: e.target.value
+            }
+        })
     };
 
     return (
         <div className='flex-col select-input'>
             <label className='selected-label' htmlFor={selectInputId}>Choose {label}</label>
-            <Select 
-                id={selectInputId} 
-                options={options} 
-                onChange={onChangeHandler}
-            />
+            <select {...props} onChange={onChangeSelect} className='select-configuration'>
+                {options.map(country => (
+                    <option key={country.label} value={country.value}>
+                        {country.label}
+                    </option>
+                ))}
+            </select>
         </div>
     );
 };

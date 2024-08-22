@@ -24,7 +24,7 @@ describe('testing of NumberOfQuestionsContainer', () => {
                     max={max}
                     onChangeNumber={onChangeNumber}
                 />);
-                input = screen.getByTestId(inputTestId)
+            input = screen.getByTestId(inputTestId)
         });
 
         test('check default value of NumberOfQuestionsContainer', () => {
@@ -37,8 +37,7 @@ describe('testing of NumberOfQuestionsContainer', () => {
 
         test('User change number of questions - called onChangeNumber', async () => {
             await userEvent.type(input, '5666')
-            expect(onChangeNumber).toBeCalledTimes(4)                       
+            expect(onChangeNumber).toBeCalledTimes(4)
         });
-
-    })
-})
+    });
+});

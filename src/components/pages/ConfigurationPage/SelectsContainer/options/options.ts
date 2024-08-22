@@ -11,8 +11,8 @@ const difficulties: Option[] = [
     { value: 'hard', label: 'Hard' },
 ];
 const types: Option[] = [
-    { value: 'boolean', label: 'boolean' },
-    { value: 'group', label: 'group' },
+    { value: 'boolean', label: 'Boolean' },
+    { value: 'group', label: 'Group' },
 ];
 const times: Option[] = [
     { value: '1m', label: '1m' },

@@ -29,11 +29,15 @@ describe('testing of SelectInput', () => {
             expect(screen.getAllByRole('option').length).toBe(categories.length)
         });
 
+        test('Check of default select', () => {
+            expect(screen.getByRole('option', { name: 'Sports', selected: true }));
+        });
+
         test('User change selected category', async () => {
             categories.forEach(async (category) => {
                 await userEvent.selectOptions(select, category.label);
                 expect(onChangeSelectField).toBeCalled();
-            })
-        })
+            });
+        });
     })
 })
